@@ -1,0 +1,24 @@
+{
+  "name": "beerking-api",
+  "version": "1.0.0",
+  "description": "Beer rating CRUD api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rcb-ferreira/beerking-api.git"
+  },
+  "keywords": [
+    "node.js",
+    "mongodb",
+    "express"
+  ],
+  "author": "Rui Ferreira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rcb-ferreira/beerking-api/issues"
+  },
+  "homepage": "https://github.com/rcb-ferreira/beerking-api#readme"
+}
