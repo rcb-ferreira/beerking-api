@@ -54,12 +54,12 @@ const UserSchema = new Schema(
       posts: [
         {
           type: Schema.Types.ObjectId,
-          ref: 'Post',
+          ref: 'Post'
         },
       ],
     },
   },
-  { timestamps: true },
+  { timestamps: true, usePushEach: true },
 );
 
 UserSchema.plugin(uniqueValidator, {
@@ -100,9 +100,9 @@ UserSchema.methods = {
     return {
       _id: this._id,
       userName: this.userName,
+      favorites: this.favorites
     };
   },
-
   _favorites: {
     async posts(postId) {
       if (this.favorites.posts.indexOf(postId) >= 0) {

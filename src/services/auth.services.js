@@ -30,16 +30,17 @@ const localStrategy = new LocalStrategy(
 
 // Jwt strategy
 const jwtOpts = {
-  jwtFromRequest: ExtractJwt.fromAuthHeader('authorization'),
+  jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('Bearer'),
   secretOrKey: constants.JWT_SECRET,
 };
 
 const jwtStrategy = new JWTStrategy(jwtOpts, async (payload, done) => {
+
   try {
     const user = await User.findById(payload._id);
 
     if (!user) {
-      return done(null, false);
+      return done(null, false, { message: 'User not found' });
     }
 
     return done(null, user);

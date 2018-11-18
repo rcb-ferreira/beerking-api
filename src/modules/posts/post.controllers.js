@@ -13,6 +13,7 @@ export async function createPost(req, res) {
 }
 
 export async function getPostById(req, res) {
+
   try {
     const promise = await Promise.all([
       User.findById(req.user._id),
@@ -26,14 +27,15 @@ export async function getPostById(req, res) {
       ...post.toJSON(),
       favorite,
     });
+
   } catch (e) {
     return res.status(HTTPStatus.BAD_REQUEST).json(e);
   }
 }
 
 export async function getPostsList(req, res) {
-  const limit = parseInt(req.query.limit, 0);
-  const skip = parseInt(req.query.skip, 0);
+  const limit = parseInt(req.query.limit, 0) || 10;
+  const skip = parseInt(req.query.skip, 0) || 0;
   try {
     const promise = await Promise.all([
       User.findById(req.user._id),
