@@ -28,31 +28,31 @@
 							"urlencoded": [
 								{
 									"key": "email",
-									"value": "ferreira.rcb@gmail.com",
+									"value": "test.001@gmail.com",
 									"description": "",
 									"type": "text"
 								},
 								{
 									"key": "firstName",
-									"value": "Rui",
+									"value": "test",
 									"description": "",
 									"type": "text"
 								},
 								{
 									"key": "lastName",
-									"value": "Ferreira",
+									"value": "me",
 									"description": "",
 									"type": "text"
 								},
 								{
 									"key": "userName",
-									"value": "ruiferreira",
+									"value": "testme",
 									"description": "",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "Beerking21",
+									"value": "1!testMe",
 									"description": "",
 									"type": "text"
 								}
@@ -92,6 +92,322 @@
 							]
 						},
 						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Users - List",
+					"request": {
+						"url": {
+							"raw": "http://localhost:3000/api/v1/users/?limit=20&skip=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								""
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "20",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "skip",
+									"value": "0",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YmMyOTc5YTAzMWVlMmM2MGVlOWFjODIiLCJpYXQiOjE1NDI1NTU1MzZ9.IeczCpjrdjUpzfZRztZbuLJ8uqTlj-NpgiQPMJRZIUw",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "ferreira.rcb@gmail.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Beerking21",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"description": "Posts specific end points",
+			"item": [
+				{
+					"name": "Posts - Create",
+					"request": {
+						"url": "http://localhost:3000/api/v1/posts/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YmMyOTc5YTAzMWVlMmM2MGVlOWFjODIiLCJpYXQiOjE1NDI1NTU1MzZ9.IeczCpjrdjUpzfZRztZbuLJ8uqTlj-NpgiQPMJRZIUw",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "this is title 3",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "text",
+									"value": "this is text 3",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": "Performing a simple `POST` request to this endpoint returns status code `401 Unauthorized` with `WWW-Authenticate` header containing information to successfully authenticate subsequent requests.\nThe `WWW-Authenticate` header must be processed to extract `realm` and `nonce` values to hash subsequent requests.\n\nWhen this request is executed within Postman, the script attached with this request does the hard work of extracting realm and nonce from the header and set it as [global variables](https://www.getpostman.com/docs/environments#global-variables?source=echo-collection-app-onboarding) named `echo_digest_nonce` and `echo_digest_realm`.\nThese variables are re-used in subsequent request for seamless integration of the two requests."
+					},
+					"response": []
+				},
+				{
+					"name": "Posts - Read",
+					"request": {
+						"url": {
+							"raw": "http://localhost:3000/api/v1/users?limit=10&skip=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "skip",
+									"value": "0",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YmMyOTc5YTAzMWVlMmM2MGVlOWFjODIiLCJpYXQiOjE1NDIzMDc1NTl9.MUp6AIdZFF65yPxLHo93tsl8sVyISNs-90BJB-X17Ts",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "ferreira.rcb@gmail.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Beerking21",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": "List all post for a spicific users or role."
+					},
+					"response": []
+				},
+				{
+					"name": "Posts - Update",
+					"request": {
+						"url": "http://localhost:3000/api/v1/users/login",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "ferreira.rcb@gmail.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Beerking21",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Posts - Delete",
+					"request": {
+						"url": "http://localhost:3000/api/v1/users/5bf12b97b47086b81456cfd1",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YmMyOTc5YTAzMWVlMmM2MGVlOWFjODIiLCJpYXQiOjE1NDIzMDc1NTl9.MUp6AIdZFF65yPxLHo93tsl8sVyISNs-90BJB-X17Ts",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "ferreira.rcb@gmail.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Beerking21",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Posts - Get by id",
+					"request": {
+						"url": "http://localhost:3000/api/v1/posts/5bf19c2ffa7781d1c3429063",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YmMyOTc5YTAzMWVlMmM2MGVlOWFjODIiLCJpYXQiOjE1NDI1NTU1MzZ9.IeczCpjrdjUpzfZRztZbuLJ8uqTlj-NpgiQPMJRZIUw",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "ferreira.rcb@gmail.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Beerking21",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": "Only return post by id"
+					},
+					"response": []
+				},
+				{
+					"name": "Posts - Get all",
+					"request": {
+						"url": "http://localhost:3000/api/v1/posts/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YmMyOTc5YTAzMWVlMmM2MGVlOWFjODIiLCJpYXQiOjE1NDI1NTU1MzZ9.IeczCpjrdjUpzfZRztZbuLJ8uqTlj-NpgiQPMJRZIUw",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "ferreira.rcb@gmail.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Beerking21",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": "Return all posts"
+					},
+					"response": []
+				},
+				{
+					"name": "Posts - Favorite",
+					"request": {
+						"url": "http://localhost:3000/api/v1/posts/5bf19c2ffa7781d1c3429063/favorite",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YmMyOTc5YTAzMWVlMmM2MGVlOWFjODIiLCJpYXQiOjE1NDI1NTU1MzZ9.IeczCpjrdjUpzfZRztZbuLJ8uqTlj-NpgiQPMJRZIUw",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Set post as favorite"
 					},
 					"response": []
 				}
