@@ -10,6 +10,12 @@ export async function signUp(req, res) {
   }
 }
 
+export function login(req, res, next) {
+  res.status(HTTPStatus.OK).json(req.user.toAuthJSON());
+
+  return next();
+}
+
 export async function listAll(req, res) {
   // const skip = parseInt(req.query.skip, 10) || 0;
   // const limit = parseInt(req.query.limit, 10) || 10;
@@ -26,8 +32,20 @@ export async function listAll(req, res) {
   }
 }
 
-export function login(req, res, next) {
-  res.status(HTTPStatus.OK).json(req.user.toAuthJSON());
+export async function updateUser(req, res) {
+  try {
+    const user = await User.findById(req.params.id);
 
-  return next();
+    if (!user.equals(req.user._id)) {
+      return res.sendStatus(HTTPStatus.UNAUTHORIZED);
+    }
+
+    Object.keys(req.body).forEach(key => {
+      user[key] = req.body[key];
+    });
+
+    return res.status(HTTPStatus.OK).json(await user.save());
+  } catch (e) {
+    return res.status(HTTPStatus.BAD_REQUEST).json(e);
+  }
 }

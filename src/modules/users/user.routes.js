@@ -7,9 +7,20 @@ import userValidation from './user.validations';
 
 const routes = new Router();
 
-routes.post('/signup', validate(userValidation.signup), userController.signUp);
+routes.post('/signup', 
+    validate(userValidation.signup), 
+    userController.signUp
+);
+
 routes.post('/login', authLocal, userController.login);
 
 routes.get('/', authJwt, userController.listAll);
+
+routes.patch(
+    '/:id',
+    authJwt,
+    validate(userValidation.signup),
+    userController.updateUser
+);
 
 export default routes;
