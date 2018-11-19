@@ -23,4 +23,6 @@ routes.patch(
     userController.updateUser
 );
 
+routes.delete('/:id', authJwt, userController.deleteUser);
+
 export default routes;

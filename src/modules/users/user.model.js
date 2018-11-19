@@ -126,4 +126,14 @@ UserSchema.methods = {
   },
 };
 
+UserSchema.statics = {
+
+  list({ skip = 0, limit = 5 } = {}) {
+    return this.find()
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(limit);
+  }
+};
+
 export default mongoose.model('User', UserSchema);

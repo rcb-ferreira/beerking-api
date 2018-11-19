@@ -68,6 +68,7 @@ PostSchema.statics = {
       user,
     });
   },
+
   list({ skip = 0, limit = 5 } = {}) {
     return this.find()
       .sort({ createdAt: -1 })
